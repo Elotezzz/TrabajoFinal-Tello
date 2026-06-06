@@ -9,6 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\TarjetaCore">
+      <UniqueIdentifier>{8b995f9c-1fc6-4a6a-a576-927ff490fc73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controladora">
+      <UniqueIdentifier>{59a43eb8-498d-466a-9404-4d6a958e1b5f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Archivos de recursos">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -18,5 +24,49 @@
     <ClCompile Include="TrabajoFinal-Tello.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Listado.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Tablero.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Tarjeta.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Checklist.cpp">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Comentario.cpp">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Fecha.cpp">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tablero.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Listado.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Tarjeta.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Fecha.h">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Checklist.h">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Comentario.h">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Archivos de origen</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
