@@ -1,14 +1,15 @@
 #pragma once
 #include <iostream>
 
-class Comentario
+class Task
 {
 private:
 	std::string text;
+	bool completado;
 
 public:
-	Comentario();
-	~Comentario();
+	Task();
+	~Task();
 
 
 };

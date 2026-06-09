@@ -39,11 +39,14 @@
     <ClCompile Include="Comentario.cpp">
       <Filter>Archivos de encabezado\TarjetaCore</Filter>
     </ClCompile>
-    <ClCompile Include="Fecha.cpp">
+    <ClCompile Include="FechaVencimiento.cpp">
       <Filter>Archivos de encabezado\TarjetaCore</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,7 +59,7 @@
     <ClInclude Include="Tarjeta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Fecha.h">
+    <ClInclude Include="FechaVencimiento.h">
       <Filter>Archivos de encabezado\TarjetaCore</Filter>
     </ClInclude>
     <ClInclude Include="Checklist.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Archivos de origen</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Archivos de encabezado\TarjetaCore</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

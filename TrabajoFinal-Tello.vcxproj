@@ -125,21 +125,23 @@
   <ItemGroup>
     <ClCompile Include="Checklist.cpp" />
     <ClCompile Include="Comentario.cpp" />
-    <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="FechaVencimiento.cpp" />
     <ClCompile Include="Listado.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Tablero.cpp" />
     <ClCompile Include="Tarjeta.cpp" />
+    <ClCompile Include="Task.cpp" />
     <ClCompile Include="TrabajoFinal-Tello.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Checklist.h" />
     <ClInclude Include="Comentario.h" />
-    <ClInclude Include="Fecha.h" />
+    <ClInclude Include="FechaVencimiento.h" />
     <ClInclude Include="Listado.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Tablero.h" />
     <ClInclude Include="Tarjeta.h" />
+    <ClInclude Include="Task.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
