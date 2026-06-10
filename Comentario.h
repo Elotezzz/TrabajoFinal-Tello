@@ -8,6 +8,7 @@ private:
 
 public:
 	Comentario();
+	Comentario(std::string text);
 	~Comentario();
 
 

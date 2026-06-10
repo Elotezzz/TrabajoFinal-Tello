@@ -10,6 +10,7 @@ private:
 	Listado* listado;
 
 public:
+	Tablero();
 	Tablero(int ID, std::string titulo);
 	~Tablero();
 

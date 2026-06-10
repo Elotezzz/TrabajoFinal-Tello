@@ -5,11 +5,12 @@
 class Checklist
 {
 private:
-	Task task;
 	int cantidadTasks;
+	Task* task;
 
 public:
 	Checklist();
+	Checklist(int cantidadTasks);
 	~Checklist();
 
 };

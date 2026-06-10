@@ -7,9 +7,10 @@ class Listado
 private:
 	int ID;
 	std::string titulo;
-	Tarjeta tarjeta;
+	Tarjeta* tarjeta;
 
 public:
 	Listado();
+	Listado(int ID, std::string titulo);
 	~Listado();
 };

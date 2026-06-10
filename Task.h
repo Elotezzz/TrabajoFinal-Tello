@@ -9,6 +9,7 @@ private:
 
 public:
 	Task();
+	Task(std::string text, bool completado);
 	~Task();
 
 

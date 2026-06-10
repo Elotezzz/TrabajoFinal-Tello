@@ -8,6 +8,7 @@ private:
 
 public:
 	FechaVencimiento();
+	FechaVencimiento(int day, int month, int year);
 	~FechaVencimiento();
 
 };
