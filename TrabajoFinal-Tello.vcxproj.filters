@@ -19,6 +19,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Estructuras de datos">
+      <UniqueIdentifier>{7908c3cf-a45b-4113-b742-0f8f67b1edfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TrabajoFinal-Tello.cpp">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Task.h">
       <Filter>Archivos de encabezado\TarjetaCore</Filter>
+    </ClInclude>
+    <ClInclude Include="TablaHash-Tablero.h">
+      <Filter>Estructuras de datos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

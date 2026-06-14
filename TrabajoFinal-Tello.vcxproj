@@ -139,6 +139,7 @@
     <ClInclude Include="FechaVencimiento.h" />
     <ClInclude Include="Listado.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="TablaHash-Tablero.h" />
     <ClInclude Include="Tablero.h" />
     <ClInclude Include="Tarjeta.h" />
     <ClInclude Include="Task.h" />
