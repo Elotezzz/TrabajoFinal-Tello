@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Checklist.h" />
+    <ClInclude Include="Cola-Task-Priority.h" />
     <ClInclude Include="Comentario.h" />
     <ClInclude Include="DobleListaEnlazada-Listado.h" />
     <ClInclude Include="FechaVencimiento.h" />

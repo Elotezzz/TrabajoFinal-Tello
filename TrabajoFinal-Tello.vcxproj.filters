@@ -83,5 +83,8 @@
     <ClInclude Include="DobleListaEnlazada-Listado.h">
       <Filter>Estructuras de datos</Filter>
     </ClInclude>
+    <ClInclude Include="Cola-Task-Priority.h">
+      <Filter>Estructuras de datos</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
