@@ -1,9 +1,9 @@
 #include "Tablero.h"
 
-Tablero::Tablero() : ID(00000), titulo(""), tam(10), listado(new Listado) {
+Tablero::Tablero() : ID(00000), titulo(""), tam(10), listado(new DoubleLinkedList<Listado>) {
 	tablaHash = new Lista[tam];
 }
-Tablero::Tablero(int ID, std::string titulo, int tam) : ID(ID), titulo(titulo), tam(tam), listado(new Listado) {
+Tablero::Tablero(int ID, std::string titulo, int tam) : ID(ID), titulo(titulo), tam(tam), listado(new DoubleLinkedList<Listado>) {
 	tablaHash = new Lista[tam];
 }
 Tablero::Tablero(int tam) : ID(0), titulo(""), tam(tam), listado(nullptr) {
@@ -28,8 +28,7 @@ int Tablero::funcionHash(const std::string& clave) {
 void Tablero::insertar(const std::string& titulo, const std::string& ID) {
     int idx = funcionHash(titulo);
     tablaHash[idx].insertar(titulo, ID);
-    std::cout << "  [guardado] " << titulo
-        << " en tabla[" << idx << "]\n";
+    std::cout << "  [guardado] " << titulo << " en tabla[" << idx << "]\n";
 }
 std::string Tablero::buscar(const std::string& titulo) {
     int idx = funcionHash(titulo);

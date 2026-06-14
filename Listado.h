@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "DobleListaEnlazada-Listado.h"
 #include "Tarjeta.h"
 
 class Listado

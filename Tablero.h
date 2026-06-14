@@ -9,7 +9,7 @@ private:
 	//parte del tablero
 	int ID;
 	std::string titulo;
-	Listado* listado;
+	DoubleLinkedList<Listado>* listado;
 
 	//parte de la tabla hash
 	int tam;

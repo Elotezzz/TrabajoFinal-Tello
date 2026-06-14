@@ -80,5 +80,8 @@
     <ClInclude Include="TablaHash-Tablero.h">
       <Filter>Estructuras de datos</Filter>
     </ClInclude>
+    <ClInclude Include="DobleListaEnlazada-Listado.h">
+      <Filter>Estructuras de datos</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
