@@ -136,21 +136,21 @@ public:
 	}
 	
 	void ModifyFirst(T data) {
-		Node<T>* currentNode = NodeAt(0);
+		DoubleNode<T>* currentNode = NodeAt(0);
 		if (currentNode != nullptr) {
 			currentNode->data = data;
 		}
 	}
 
 	void ModifyPos(T data, int pos) {
-		Node<T>* currentNode = NodeAt(pos);
+		DoubleNode<T>* currentNode = NodeAt(pos);
 		if (currentNode != nullptr) {
 			currentNode->data = data;
 		}
 	}
 
 	void ModifyLast(T data) {
-		Node<T>* currentNode = NodeAt(length - 1);
+		DoubleNode<T>* currentNode = NodeAt(length - 1);
 		if (currentNode != nullptr) {
 			currentNode->data = data;
 		}
@@ -161,7 +161,7 @@ public:
 			std::cout << "No se puede eliminar un nodo en una lista enlazada vacía\n";
 			return;
 		}
-		Node<T>* aux = head;
+		DoubleNode<T>* aux = head;
 		head = head->next;
 		delete aux;
 		length--;
@@ -175,8 +175,8 @@ public:
 		if (pos == 0) // Remuevo el inicio
 			RemoveFirst();
 		else {
-			Node<T>* nodeBefore = NodeAt(pos - 1);
-			Node<T>* nodeErase = NodeAt(pos);
+			DoubleNode<T>* nodeBefore = NodeAt(pos - 1);
+			DoubleNode<T>* nodeErase = NodeAt(pos);
 			if (nodeBefore != nullptr && nodeErase != nullptr) {
 				nodeBefore->next = nodeErase->next;
 				// Podemos eliminar con tranquilidad el nodo elegido
@@ -192,18 +192,18 @@ public:
 			return;
 		}
 		if (length == 1) {
-			Node<T>* aux = head;
+			DoubleNode<T>* aux = head;
 			head = nullptr;
 			delete aux;
 			length--;
 		}
 		else {
 			// Busca el penúltimo nodo, lo guardamos
-			Node<T>* nodePreviousLast = NodeAt(length - 2);
+			DoubleNode<T>* nodePreviousLast = NodeAt(length - 2);
 			if (nodePreviousLast != nullptr) {
 				// Penúltimo nodo apunte a nulo y hacemos que el último nodo
 				// sea eliminado.
-				Node<T>* nodeLast = nodePreviousLast->next;
+				DoubleNode<T>* nodeLast = nodePreviousLast->next;
 				nodePreviousLast->next = nullptr;
 				delete nodeLast;
 				length--;
@@ -212,17 +212,17 @@ public:
 	}
 
 	T GetFirst() {
-		Node<T>* first = NodeAt(0);
+		DoubleNode<T>* first = NodeAt(0);
 		return first != nullptr ? first->data : -1;
 	}
 
 	T GetPos(int pos) {
-		Node<T>* node = NodeAt(pos);
+		DoubleNode<T>* node = NodeAt(pos);
 		return node != nullptr ? node->data : -1;
 	}
 
 	T GetLast() {
-		Node<T>* last = NodeAt(length - 1);
+		DoubleNode<T>* last = NodeAt(length - 1);
 		return last != nullptr ? last->data : -1;
 	}
 	
