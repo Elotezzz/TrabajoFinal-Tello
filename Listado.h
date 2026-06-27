@@ -18,7 +18,7 @@ public:
 	NodoAVL* getRaizArbol() const {
 		return raizArbol;
 	}
-	std::string getTitulo() const{};
+	std::string getTitulo();	
 	int partition(std::vector<Listado>& A, int low, int high);
 	void quickSort(std::vector<Listado>& A, int low, int high);
 };

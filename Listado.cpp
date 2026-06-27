@@ -20,7 +20,7 @@ Listado::~Listado() {
 	DestruirArbol(raizArbol);
 	raizArbol = nullptr;
 }
-std::string Listado::getTitulo() const { return titulo; }
+std::string Listado::getTitulo(){ return titulo; }
 int partition(std::vector<Listado>& A, int low, int high)
 {
     std::string pivot = A[high].getTitulo();
