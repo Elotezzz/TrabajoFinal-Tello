@@ -13,11 +13,16 @@ private:
 	std::string descripcion;
 	Checklist* checklist;
 	std::vector<Comentario*> comentarios;
+	int prioridad;
 public:
 	Tarjeta();
 	Tarjeta(int ID, std::string titulo, std::string descripcion);
 	int getPrioridad() const {
-		return comentarios.size() + 2 * checklist->getCantidadTasksCompletadas();
+		return prioridad;
+	}
+	void actualizarPrioridad() {
+		int tareasCompletadas = (checklist != nullptr) ? checklist->getCantidadTasksCompletadas():0;
+		prioridad = comentarios.size() + 2 * checklist->getCantidadTasksCompletadas();
 	}
 	~Tarjeta();
 };

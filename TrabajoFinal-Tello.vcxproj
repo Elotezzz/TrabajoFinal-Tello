@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArbolAVL-Priority.cpp" />
     <ClCompile Include="Checklist.cpp" />
     <ClCompile Include="Comentario.cpp" />
     <ClCompile Include="FechaVencimiento.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="TrabajoFinal-Tello.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArbolAVL-Priority.h" />
     <ClInclude Include="Checklist.h" />
     <ClInclude Include="Cola-Task-Priority.h" />
     <ClInclude Include="Comentario.h" />
