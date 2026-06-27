@@ -29,7 +29,7 @@ int partition(std::vector<Listado>& A, int low, int high)
     {
         // <= (menor a mayor)
         // >= (mayor a menor)
-        if (A[j].getTitulo() >= pivot)
+        if (A[j].getTitulo() <= pivot)
         {
             i++;
             std::swap(A[i], A[j]);
