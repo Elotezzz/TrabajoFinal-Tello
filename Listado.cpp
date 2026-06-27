@@ -13,7 +13,12 @@ Listado::Listado(int ID, std::string titulo) {
 void Listado::agregarTarjeta(Tarjeta* nuevaTarjeta) {
 	if (nuevaTarjeta!=nullptr)
 	{
-		raizArbol = Insertar(raizArbol, nuevaTarjeta);
+		auto calcularFormula = [](int comentarios, int tareas) -> int {
+			return comentarios + 2 * tareas;
+			};
+		int prioridadCalculada = calcularFormula(nuevaTarjeta->getCantidadComentarios(),nuevaTarjeta->getCantidadTasksCompletadas());
+		nuevaTarjeta->setPrioridad(prioridadCalculada);
+        raizArbol = Insertar(raizArbol, nuevaTarjeta);
 	}
 }
 Listado::~Listado() {

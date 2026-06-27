@@ -20,9 +20,14 @@ public:
 	int getPrioridad() const {
 		return prioridad;
 	}
-	void actualizarPrioridad() {
-		int tareasCompletadas = (checklist != nullptr) ? checklist->getCantidadTasksCompletadas():0;
-		prioridad = comentarios.size() + 2 * checklist->getCantidadTasksCompletadas();
+	void setPrioridad(int prioridad) {
+		this->prioridad = prioridad;
+	}
+	int getCantidadComentarios() const {
+		return comentarios.size();
+	}
+	int getCantidadTasksCompletadas() const {
+		return (checklist != nullptr) ? checklist->getCantidadTasksCompletadas() : 0;
 	}
 	~Tarjeta();
 };
