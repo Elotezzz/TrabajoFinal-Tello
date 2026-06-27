@@ -1,27 +1,29 @@
 #pragma once
 #include <iostream>
 
-class Nodo {
+template <typename T>
+class NodoCola {
 public:
-	int dato;
-	Nodo* siguiente;
-	Nodo(int valor) {
+	T dato;
+	NodoCola<T>* siguiente;
+	NodoCola(T valor) {
 		dato = valor;
 		siguiente = nullptr;
 	}
 };
 
+template <typename T>
 class Cola {
 private:
-	Nodo* frente;
-	Nodo* final;
+	NodoCola<T>* frente;
+	NodoCola<T>* final;
 public:
 	Cola() {
 		frente = nullptr;
 		final = nullptr;
 	}
-	void enqueue(int valor) {
-		Nodo* nuevo = new Nodo(valor);
+	void enqueue(T valor) {
+		NodoCola<T>* nuevo = new NodoCola<T>(valor);
 		if (final == nullptr) {
 			frente = final = nuevo;
 			return;
@@ -31,16 +33,21 @@ public:
 	}
 	void dequeue() {
 		if (frente == nullptr) return;
-		Nodo* temp = frente;
+		NodoCola<T>* temp = frente;
 		frente = frente->siguiente;
 		if (frente == nullptr)
 			final = nullptr;
 		delete temp;
 	}
-	int front() {
-		return frente ? frente->dato : -1;
+	T front() {
+		return frente ? frente->dato : T();
 	}
 	bool isEmpty() {
 		return frente == nullptr;
+	}
+	~Cola() {
+		while (!isEmpty()) {
+			dequeue();
+		}
 	}
 };

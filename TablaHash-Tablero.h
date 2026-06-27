@@ -1,69 +1,63 @@
 ﻿#pragma once
 #include <iostream>
 
-struct Nodo {
-    std::string titulo;
-    std::string ID;
-    Nodo* siguiente;
+template <typename Clave, typename Valor>
+struct NodoHash {
+    Clave clave; //titulo
+    Valor valor; //ID
+    NodoHash<Clave, Valor>* siguiente;
 
-    Nodo(std::string n, std::string c) : titulo(n), ID(c), siguiente(nullptr) {}
+    NodoHash(Clave c, Valor v) : clave(c), valor(v), siguiente(nullptr) {}
 };
 
+template <typename Clave, typename Valor>
 struct Lista {
-    Nodo* cabeza;
+    NodoHash<Clave, Valor>* cabeza;
 
     Lista() : cabeza(nullptr) {}
 
     // Inserta al inicio o actualiza
-    void insertar(const std::string& titulo, const std::string& ID) {
-        Nodo* actual = cabeza;
-        // Busca si existe el titulo y lo actualiza
+    void insertar(const Clave& clave, const Valor& valor) {
+        NodoHash<Clave, Valor>* actual = cabeza;
         while (actual) {
-            if (actual->titulo == titulo) {
-                actual->ID = ID;  // actualiza
+            if (actual->clave == clave) {
+                actual->valor = valor;  // actualiza
                 return;
             }
             actual = actual->siguiente;
         }
-        //Si  No existe → inserta al inicio
-        Nodo* nuevo = new Nodo(titulo, ID);
+        // No existe -> inserta al inicio
+        NodoHash<Clave, Valor>* nuevo = new NodoHash<Clave, Valor>(clave, valor);
         nuevo->siguiente = cabeza;
         cabeza = nuevo;
     }
 
-    // Retorna ID o mensaje de error
-    std::string buscar(const std::string& titulo) {
-        Nodo* actual = cabeza;
+    // Retorna el valor o "noEncontrado" si no existe
+    Valor buscar(const Clave& clave, const Valor& noEncontrado = Valor()) {
+        NodoHash<Clave, Valor>* actual = cabeza;
         while (actual) {
-            if (actual->titulo == titulo)
-                return actual->ID;
+            if (actual->clave == clave)
+                return actual->valor;
             actual = actual->siguiente;
         }
-
-
-        return "No encontrado";
-
-
-
+        return noEncontrado;
     }
 
-    // Elimina un nodo por titulo
-    bool eliminar(const std::string& titulo) {
+    // Elimina un nodo por clave
+    bool eliminar(const Clave& clave) {
         if (!cabeza) return false;
 
-        // Caso especial: es la cabeza
-        if (cabeza->titulo == titulo) {
-            Nodo* temp = cabeza;
+        if (cabeza->clave == clave) {
+            NodoHash<Clave, Valor>* temp = cabeza;
             cabeza = cabeza->siguiente;
             delete temp;
             return true;
         }
 
-        // Caso general: busca el nodo anterior
-        Nodo* anterior = cabeza;
+        NodoHash<Clave, Valor>* anterior = cabeza;
         while (anterior->siguiente) {
-            if (anterior->siguiente->titulo == titulo) {
-                Nodo* temp = anterior->siguiente;
+            if (anterior->siguiente->clave == clave) {
+                NodoHash<Clave, Valor>* temp = anterior->siguiente;
                 anterior->siguiente = temp->siguiente;
                 delete temp;
                 return true;
@@ -76,7 +70,7 @@ struct Lista {
     // Libera toda la lista
     void limpiar() {
         while (cabeza) {
-            Nodo* temp = cabeza;
+            NodoHash<Clave, Valor>* temp = cabeza;
             cabeza = cabeza->siguiente;
             delete temp;
         }
@@ -84,9 +78,9 @@ struct Lista {
 
     // Imprime los nodos de esta lista
     void imprimir() {
-        Nodo* actual = cabeza;
+        NodoHash<Clave, Valor>* actual = cabeza;
         while (actual) {
-            std::cout << "[" << actual->titulo << " --> " << actual->ID << "] ";
+            std::cout << "[" << actual->clave << " --> " << actual->valor << "] ";
             actual = actual->siguiente;
         }
     }

@@ -9,13 +9,13 @@ class Listado
 private:
 	int ID;
 	std::string titulo;
-	NodoAVL* raizArbol;
+	NodoAVL<Tarjeta>* raizArbol;
 public:
 	Listado();
 	Listado(int ID, std::string titulo);
 	~Listado();
 	void agregarTarjeta(Tarjeta* tarjeta);
-	NodoAVL* getRaizArbol() const {
+	NodoAVL<Tarjeta>* getRaizArbol() const {
 		return raizArbol;
 	}
 	std::string getTitulo();	

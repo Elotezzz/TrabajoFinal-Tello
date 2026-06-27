@@ -1,13 +1,13 @@
 #include "Tablero.h"
 
 Tablero::Tablero() : ID(00000), titulo(""), tam(10), listado(new DoubleLinkedList<Listado>) {
-	tablaHash = new Lista[tam];
+	tablaHash = new Lista<std::string, std::string>[tam];
 }
 Tablero::Tablero(int ID, std::string titulo, int tam) : ID(ID), titulo(titulo), tam(tam), listado(new DoubleLinkedList<Listado>) {
-	tablaHash = new Lista[tam];
+	tablaHash = new Lista<std::string, std::string>[tam];
 }
 Tablero::Tablero(int tam) : ID(0), titulo(""), tam(tam), listado(nullptr) {
-    tablaHash = new Lista[tam];
+    tablaHash = new Lista<std::string, std::string>[tam];
 }
 Tablero::~Tablero() {
     for (int i = 0; i < tam; i++) {

@@ -35,11 +35,12 @@ public:
 			tasks[index]->setCompletado(false);
 		}
 	}
-	void mostrarTasks() const {
-		for (int i = 0; i < tasks.size(); ++i) {
-			std::cout << "Task " << i + 1 << ": " << tasks[i]->getText()
-				<< " [" << (tasks[i]->getCompletado() ? "Completada" : "Incompleta") << "]" << std::endl;
-		}
+	void mostrarTasksRecursivo(int n) const {
+		if (n >= (int)tasks.size()) 
+			return;
+		std::cout << "Task " << n + 1 << ": " << tasks[n]->getText()
+				<< " [" << (tasks[n]->getCompletado() ? "Completada" : "Incompleta") << "]" << std::endl;
+		mostrarTasksRecursivo(n + 1);
 	}
 	~Checklist();
 };

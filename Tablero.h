@@ -13,7 +13,7 @@ private:
 
 	//parte de la tabla hash
 	int tam;
-	Lista* tablaHash;
+	Lista<std::string, std::string>* tablaHash;
     int funcionHash(const std::string& clave);
 
 public:
