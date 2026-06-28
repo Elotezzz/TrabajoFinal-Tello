@@ -10,17 +10,23 @@ Listado::Listado(int ID, std::string titulo) {
 	this->titulo = titulo;
 	raizArbol = nullptr;
 }
+
+// Analisis Big O - funcion agregarTarjeta
 void Listado::agregarTarjeta(Tarjeta* nuevaTarjeta) {
-	if (nuevaTarjeta!=nullptr)
+	if (nuevaTarjeta!=nullptr)                                                                                                          // 1
 	{
-		auto calcularFormula = [](int comentarios, int tareas) -> int {
-			return comentarios + 2 * tareas;
+		auto calcularFormula = [](int comentarios, int tareas) -> int {                                                                 // 3
+			return comentarios + 2 * tareas;                                                                                            // 3
 			};
-		int prioridadCalculada = calcularFormula(nuevaTarjeta->getCantidadComentarios(),nuevaTarjeta->getCantidadTasksCompletadas());
-		nuevaTarjeta->setPrioridad(prioridadCalculada);
-        raizArbol = Insertar(raizArbol, nuevaTarjeta);
+		int prioridadCalculada = calcularFormula(nuevaTarjeta->getCantidadComentarios(),nuevaTarjeta->getCantidadTasksCompletadas());   // 3
+		nuevaTarjeta->setPrioridad(prioridadCalculada);                                                                                 // 2
+        raizArbol = Insertar(raizArbol, nuevaTarjeta);                                                                                  // log N
 	}
 }
+// Como podemos ver en total nos saldria que -> agregarTarjeta = 1 + 6 + 5 + log(N)
+// En total seria                            -> agregarTarjeta = 12 + log(N)
+//                                           -> agregarTarjeta = O(log(N))
+
 Listado::~Listado() {
 	DestruirArbol(raizArbol);
 	raizArbol = nullptr;

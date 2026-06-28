@@ -11,36 +11,16 @@ private:
 public:
 	Checklist();
 	Checklist(int cantidadTasks);
-	int getCantidadTasks() const { return tasks.size(); }
-	int getCantidadTasksCompletadas() const {
-		int count = 0;
-		for (const auto& task : tasks) {
-			if (task->getCompletado()) {
-				count++;
-			}
-		}
-		return count;
-	}
-	void agregarTask(Task* task) {
-		tasks.push_back(task);
-		cantidadTasks++;
-	}
-	void marcarTaskCompletada(int index) {
-		if (index >= 0 && index < tasks.size()) {
-			tasks[index]->setCompletado(true);
-		}
-	}
-	void marcarTaskIncompleta(int index) {
-		if (index >= 0 && index < tasks.size()) {
-			tasks[index]->setCompletado(false);
-		}
-	}
-	void mostrarTasksRecursivo(int n) const {
+	int getCantidadTasks();
+	int getCantidadTasksCompletadas();
+	void agregarTask(Task* task);
+	void marcarTaskCompletada(const int index);
+	void marcarTaskIncompleta(const int index);
+	void mostrarTasksRecursivo(const int n) {
 		if (n >= (int)tasks.size()) 
 			return;
 		std::cout << "Task " << n + 1 << ": " << tasks[n]->getText()
 				<< " [" << (tasks[n]->getCompletado() ? "Completada" : "Incompleta") << "]" << std::endl;
 		mostrarTasksRecursivo(n + 1);
 	}
-	~Checklist();
 };

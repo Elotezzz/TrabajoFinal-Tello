@@ -14,6 +14,6 @@ public:
 	void setCompletado(bool completado) { this->completado = completado; }
 	std::string getText() const { return text; }
 	bool getCompletado() const { return completado; }
-	int cantidadTasksCompletadas(std::vector<Task>& tasks);
+	int cantidadTasksCompletadas(const std::vector<Task>& tasks);
 	~Task();
 };

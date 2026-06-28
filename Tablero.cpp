@@ -17,13 +17,17 @@ Tablero::~Tablero() {
 	delete[] listado;
 }
 
+// Analisis Big O - funcion funcionHash
 int Tablero::funcionHash(const std::string& clave) {
-	unsigned long h = 0;
-	for (char c : clave) {
-		h = h * 31 + c;
+	unsigned long h = 0;                // 1
+	for (char c : clave) {              // 2 + N
+		h = h * 31 + c;                 // 3
 	}
-	return h % tam;
+	return h % tam;                     // 1
 }
+// Como podemos ver en total nos saldria que -> funcionHash: 1 + 2 + N + 3 + 1
+// En total seria                            -> funcionHash: 7 + N
+//                                           -> funcionHash: O(N)
 
 void Tablero::insertar(const std::string& titulo, const std::string& ID) {
     int idx = funcionHash(titulo);

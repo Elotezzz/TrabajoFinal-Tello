@@ -4,31 +4,35 @@ Menu::Menu(const char* titulo, const char* opciones[], int cantidad) : titulo(ti
 cntOpciones(cantidad), seleccion(0) {
 }
 
+// Analisis Big O - funcion mostrarMenu
 int Menu::mostrarMenu() {
-	char tecla;
-	while (true) {
+	char tecla;																	// 1
+	while (true) {																// N
 		system("cls");
-		std::cout << "====== " << titulo << " ======\n";
-		for (int i = 0; i < cntOpciones; i++) {
-			if (seleccion == i) {
-				std::cout << "> " << i + 1 << ". " << opciones[i] << "\n";
+		std::cout << "====== " << titulo << " ======\n";						// 1
+		for (int i = 0; i < cntOpciones; i++) {									// 1 + (1+ 2 + 2) N
+			if (seleccion == i) {												// 1
+				std::cout << "> " << i + 1 << ". " << opciones[i] << "\n";		// 2
 			}
 			else {
-				std::cout << "  " << i + 1 << ". " << opciones[i] << "\n";
+				std::cout << "  " << i + 1 << ". " << opciones[i] << "\n";		// 2
 			}
 		}
-		tecla = _getch();
-		if (tecla == -32) {
-			tecla = _getch();
-			if (tecla == KEY_DOWN) {
-				seleccion = (seleccion + 1) % cntOpciones;
+		tecla = _getch();														// 1
+		if (tecla == -32) {														// 1
+			tecla = _getch();													// 1
+			if (tecla == KEY_DOWN) {											// 1
+				seleccion = (seleccion + 1) % cntOpciones;						// 3
 			}
-			else if (tecla == KEY_UP) {
-				seleccion = (seleccion - 1 + cntOpciones) % cntOpciones;
+			else if (tecla == KEY_UP) {											// 1
+				seleccion = (seleccion - 1 + cntOpciones) % cntOpciones;		// 3
 			}
 		}
-		else if (tecla == KEY_ENTER) {
-			return seleccion;
+		else if (tecla == KEY_ENTER) {											// 1
+			return seleccion;													// 1
 		}
 	}
 };
+// Como podemos ver en total nos saldria que -> mostrarMenu = 1 + N + 2 + (5)N + 3 + 2 + 7 + 4 + 2
+// En total seria							 -> mostrarMenu = 21 + N + 5N
+//											 -> mostrar Menu = O(6N) -> O(N)
