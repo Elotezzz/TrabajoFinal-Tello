@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(const char* titulo, std::vector<std::string> opciones, int cantidad) : titulo(titulo), opciones(opciones),
+Menu::Menu(std::string titulo, std::vector<std::string> opciones, int cantidad) : titulo(titulo), opciones(opciones),
 cntOpciones(cantidad), seleccion(0) {
 }
 
@@ -30,6 +30,9 @@ int Menu::mostrarMenu() {
 		}
 		else if (tecla == KEY_ENTER) {											// 1
 			return seleccion;													// 1
+		}
+		else if (tecla == KEY_ESCAPE) {
+			return -1;
 		}
 	}
 };

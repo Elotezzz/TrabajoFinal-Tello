@@ -8,15 +8,58 @@
 
 using namespace std;
 
-void menuTarjeta(int opc, string titulo, string ID) {
+void menuTarjeta(string titulo) {
+	int opc;
 	Tarjeta tarjeta;
+
+	vector<string> opcL = { "Crear Tarjeta", "Ver Tarjetas", "Eliminar Tarjeta", "Seleccionar Tarjeta", "Volver" };
+	Menu menuListado(titulo, opcL, opcL.size());
+	do
+	{
+		opc = menuListado.mostrarMenu();
+
+		switch (opc)
+		{
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		}
+
+	} while (opc != 4);
 }
 
-void menuListado(int opc, string titulo, string ID) {
+void menuListado(string titulo) {
+	int opc;
 	Listado listado;
-	vector<string> ListadoNew;
 
-	vector<string> opciones = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
+	vector<string> opcT = { "Crear Lista", "Ver Listas", "Eliminar Lista", "Seleccionar Lista", "Volver" };
+	Menu menuTablero(titulo, opcT, opcT.size());
+	do
+	{
+		opc = menuTablero.mostrarMenu();
+
+		switch (opc)
+		{
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		}
+
+	} while (opc != 4);
 }
 
 int main()
@@ -26,8 +69,8 @@ int main()
 	vector<string> TableroNew;
 	Tablero tablero(10);
 
-	vector<string> opciones = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
-    Menu menuPrincipal("TELLO", opciones, 5);
+	vector<string> opcM = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
+    Menu menuPrincipal("TELLO", opcM, opcM.size());
 	do
 	{
 		opc = menuPrincipal.mostrarMenu();
@@ -53,20 +96,29 @@ int main()
 			break;
 			}
 		case 2: {
-			Menu menuSeleccionEliminar("Eliminar Tablero", TableroNew, TableroNew.size());
+			if (TableroNew.size() != 0)
+			{
+				Menu menuSeleccionEliminar("Eliminar Tablero", TableroNew, TableroNew.size());
 
-			int opcEliminar = menuSeleccionEliminar.mostrarMenu();
-			titulo = TableroNew[opcEliminar];
-			tablero.eliminar(titulo);
-
+				int opcEliminar = menuSeleccionEliminar.mostrarMenu();
+				if (opcEliminar == -1) break;
+				titulo = TableroNew[opcEliminar];
+				tablero.eliminar(titulo);
+			}
+			else
+			{
+				cout << "Contenido no valido, primero registre un tablero\n";
+				_getch();
+			}
 			break;
 			}
 		case 3: {
 			Menu menuSeleccion("Seleccionar Tablero", TableroNew, TableroNew.size());
 
 			int opcSeleccion = menuSeleccion.mostrarMenu();
+			if (opcSeleccion == -1) break;
 			titulo = TableroNew[opcSeleccion];
-			// segundo menu no? 
+			menuListado(titulo);
 
 			break;
 			}
