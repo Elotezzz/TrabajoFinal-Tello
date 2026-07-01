@@ -16,11 +16,5 @@ public:
 	void agregarTask(Task* task);
 	void marcarTaskCompletada(const int index);
 	void marcarTaskIncompleta(const int index);
-	void mostrarTasksRecursivo(const int n) {
-		if (n >= (int)tasks.size()) 
-			return;
-		std::cout << "Task " << n + 1 << ": " << tasks[n]->getText()
-				<< " [" << (tasks[n]->getCompletado() ? "Completada" : "Incompleta") << "]" << std::endl;
-		mostrarTasksRecursivo(n + 1);
-	}
+	void mostrarTasksRecursivo(const int n);
 };

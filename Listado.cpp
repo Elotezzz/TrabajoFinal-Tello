@@ -32,7 +32,7 @@ Listado::~Listado() {
 	raizArbol = nullptr;
 }
 std::string Listado::getTitulo(){ return titulo; }
-int partition(std::vector<Listado>& A, int low, int high)
+int Listado::partition(std::vector<Listado>& A, int low, int high)
 {
     std::string pivot = A[high].getTitulo();
     int i = low - 1;
@@ -49,7 +49,7 @@ int partition(std::vector<Listado>& A, int low, int high)
     std::swap(A[i + 1], A[high]);
     return i + 1;
 }
-void quickSort(std::vector<Listado>& A, int low, int high)
+void Listado::quickSort(std::vector<Listado>& A, int low, int high)
 {
     if (low < high)
     {

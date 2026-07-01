@@ -1,4 +1,8 @@
 #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <Windows.h>
 #include "Menu.h"
 #include "Tablero.h"
 
@@ -7,45 +11,57 @@ using namespace std;
 int main()
 {
 	int opc;
-
-	Tablero tablero(10);
 	string titulo, ID;
 
+	vector<string> Titulos;
 
-	const char* opciones[] = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
+	Tablero tablero(10);
+	Listado listado;
+	Tarjeta tarjeta;
+
+	vector<string> opciones = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
     Menu menuPrincipal("TELLO", opciones, 5);
 	do
 	{
 		opc = menuPrincipal.mostrarMenu();
 		switch (opc)
 		{
-		case 0:
-			cout << "=== Info Tablero ===\n";
+		case 0: {
+			cout << "=== Crear Tablero ===\n";
 			cout << "> Nombre del tablero: "; cin >> titulo;
-			cout << "> ID del tablero: "; cin >> ID;
+			Titulos.push_back(titulo);
+			ID =  to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
+				+ to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
+				+ to_string(rand() % 8 + 1);
 			tablero.insertar(titulo, ID);
 			_getch();
 			
 			break;
-		case 1:
+			}
+		case 1: {
+			cout << "=== Tableros Creados ===\n";
 			tablero.imprimir();
 			_getch();
 
 			break;
-		case 2:
+			}
+		case 2: {
 
+			Menu menuSeleccionEliminar("Eliminar Tablero", Titulos, Titulos.size());
+
+			//tablero.eliminar(titulo);
+			_getch();
+			break;
+			}
+		case 3: {
+			cout << "=== Seleccionar Tablero ===\n";
 
 
 			break;
-		case 3:
-
-
-
-			break;
+			}
 		case 4:
-
-
-
+			cout << "Saliendo del programa Tello ...";
+			Sleep(2000);
 			break;
 		}
 	} while (opc != 4);

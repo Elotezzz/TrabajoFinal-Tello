@@ -32,7 +32,7 @@ int Tablero::funcionHash(const std::string& clave) {
 void Tablero::insertar(const std::string& titulo, const std::string& ID) {
     int idx = funcionHash(titulo);
     tablaHash[idx].insertar(titulo, ID);
-    std::cout << "  [guardado] " << titulo << " en tabla[" << idx << "]\n";
+    std::cout << "  [guardado] " << titulo << " en tabla [" << idx << "]\n";
 }
 std::string Tablero::buscar(const std::string& titulo) {
     int idx = funcionHash(titulo);
@@ -46,7 +46,7 @@ void Tablero::imprimir() {
     std::cout << "\n--- Tableros ---\n";
     for (int i = 0; i < tam; i++) {
         if (!tablaHash[i].cabeza) continue;
-        std::cout << "tabla[" << i << "]: ";
+        std::cout << "Tablero [" << i << "]: ";
         tablaHash[i].imprimir();
         std::cout << "\n";
     }

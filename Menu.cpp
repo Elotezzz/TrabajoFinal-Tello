@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(const char* titulo, const char* opciones[], int cantidad) : titulo(titulo), opciones(opciones),
+Menu::Menu(const char* titulo, std::vector<std::string> opciones, int cantidad) : titulo(titulo), opciones(opciones),
 cntOpciones(cantidad), seleccion(0) {
 }
 

@@ -80,7 +80,7 @@ struct Lista {
     void imprimir() {
         NodoHash<Clave, Valor>* actual = cabeza;
         while (actual) {
-            std::cout << "[" << actual->clave << " --> " << actual->valor << "] ";
+            std::cout << "[" << actual->clave << " \t--> " << actual->valor << "] ";
             actual = actual->siguiente;
         }
     }
