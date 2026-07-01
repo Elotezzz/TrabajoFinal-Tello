@@ -103,14 +103,17 @@ int main()
 				if (opcEliminar == -1) break;
 				titulo = TableroNew[opcEliminar];
 
-				//if (tablero.buscar(titulo)) {
-				//	tablero.eliminar(titulo);
-				//	TableroNew.erase(TableroNew.begin() + opcEliminar); //IA
-				//}
-				//else {
-				//	cout << "Tablero no encontrado";
-				//	_getch();
-				//}
+				// Aqui mi tio claudio me ayudo para la logica del if y q al momento de borrar un tablero seguia apareciendo 
+				// su nombre
+				if (!tablero.buscar(titulo).empty()) {
+					tablero.eliminar(titulo);
+					TableroNew.erase(TableroNew.begin() + opcEliminar);
+				}
+
+				else {
+					cout << "Tablero no encontrado";
+					_getch();
+				}
 			}
 			else
 			{
@@ -125,8 +128,13 @@ int main()
 			int opcSeleccion = menuSeleccion.mostrarMenu();
 			if (opcSeleccion == -1) break;
 			titulo = TableroNew[opcSeleccion];
-			menuListado(titulo, tablero);
-				
+
+			if (!tablero.buscar(titulo).empty()) 
+				menuListado(titulo, tablero);
+			else {
+				cout << "Tablero no encontrado";
+				_getch();
+			}
 			break;
 			}
 		case 4:
