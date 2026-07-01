@@ -213,17 +213,17 @@ public:
 
 	T GetFirst() {
 		DoubleNode<T>* first = NodeAt(0);
-		return first != nullptr ? first->data : -1;
+		return first != nullptr ? first->data : T();
 	}
 
 	T GetPos(int pos) {
 		DoubleNode<T>* node = NodeAt(pos);
-		return node != nullptr ? node->data : -1;
+		return node != nullptr ? node->data : T();
 	}
 
 	T GetLast() {
 		DoubleNode<T>* last = NodeAt(length - 1);
-		return last != nullptr ? last->data : -1;
+		return last != nullptr ? last->data : T();
 	}
 	
 };

@@ -35,7 +35,7 @@ void menuTarjeta(string titulo) {
 	} while (opc != 4);
 }
 
-void menuListado(string titulo) {
+void menuListado(string titulo, Tablero& tablero) {
 	int opc;
 	Listado listado;
 
@@ -66,7 +66,7 @@ int main()
 {
 	int opc;
 	string titulo, ID;
-	vector<string> TableroNew;
+	vector<string> TableroNew = {"New File"};
 	Tablero tablero(10);
 
 	vector<string> opcM = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
@@ -80,9 +80,8 @@ int main()
 			cout << "=== Crear Tablero ===\n";
 			cout << "> Nombre del tablero: "; cin >> titulo;
 			TableroNew.push_back(titulo);
-			ID =  to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
-				+ to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
-				+ to_string(rand() % 8 + 1);
+			ID = to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
+				+ to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1);
 			tablero.insertar(titulo, ID);
 
 			_getch();
@@ -103,7 +102,15 @@ int main()
 				int opcEliminar = menuSeleccionEliminar.mostrarMenu();
 				if (opcEliminar == -1) break;
 				titulo = TableroNew[opcEliminar];
-				tablero.eliminar(titulo);
+
+				//if (tablero.buscar(titulo)) {
+				//	tablero.eliminar(titulo);
+				//	TableroNew.erase(TableroNew.begin() + opcEliminar); //IA
+				//}
+				//else {
+				//	cout << "Tablero no encontrado";
+				//	_getch();
+				//}
 			}
 			else
 			{
@@ -118,8 +125,8 @@ int main()
 			int opcSeleccion = menuSeleccion.mostrarMenu();
 			if (opcSeleccion == -1) break;
 			titulo = TableroNew[opcSeleccion];
-			menuListado(titulo);
-
+			menuListado(titulo, tablero);
+				
 			break;
 			}
 		case 4:
