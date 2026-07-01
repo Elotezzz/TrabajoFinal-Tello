@@ -34,23 +34,24 @@ int main()
 				+ to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
 				+ to_string(rand() % 8 + 1);
 			tablero.insertar(titulo, ID);
+
 			_getch();
-			
 			break;
 			}
 		case 1: {
 			cout << "=== Tableros Creados ===\n";
 			tablero.imprimir();
-			_getch();
 
+			_getch();
 			break;
 			}
 		case 2: {
-
 			Menu menuSeleccionEliminar("Eliminar Tablero", Titulos, Titulos.size());
 
-			//tablero.eliminar(titulo);
-			_getch();
+			int opcEliminar = menuSeleccionEliminar.mostrarMenu();
+			titulo = Titulos[opcEliminar];
+			tablero.eliminar(titulo);
+
 			break;
 			}
 		case 3: {
