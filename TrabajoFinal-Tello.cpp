@@ -8,16 +8,23 @@
 
 using namespace std;
 
+void menuTarjeta(int opc, string titulo, string ID) {
+	Tarjeta tarjeta;
+}
+
+void menuListado(int opc, string titulo, string ID) {
+	Listado listado;
+	vector<string> ListadoNew;
+
+	vector<string> opciones = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
+}
+
 int main()
 {
 	int opc;
 	string titulo, ID;
-
-	vector<string> Titulos;
-
+	vector<string> TableroNew;
 	Tablero tablero(10);
-	Listado listado;
-	Tarjeta tarjeta;
 
 	vector<string> opciones = { "Crear Tablero", "Ver Tableros", "Eliminar Tablero", "Seleccionar Tablero", "Salir" };
     Menu menuPrincipal("TELLO", opciones, 5);
@@ -29,7 +36,7 @@ int main()
 		case 0: {
 			cout << "=== Crear Tablero ===\n";
 			cout << "> Nombre del tablero: "; cin >> titulo;
-			Titulos.push_back(titulo);
+			TableroNew.push_back(titulo);
 			ID =  to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
 				+ to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) + to_string(rand() % 8 + 1) 
 				+ to_string(rand() % 8 + 1);
@@ -46,17 +53,20 @@ int main()
 			break;
 			}
 		case 2: {
-			Menu menuSeleccionEliminar("Eliminar Tablero", Titulos, Titulos.size());
+			Menu menuSeleccionEliminar("Eliminar Tablero", TableroNew, TableroNew.size());
 
 			int opcEliminar = menuSeleccionEliminar.mostrarMenu();
-			titulo = Titulos[opcEliminar];
+			titulo = TableroNew[opcEliminar];
 			tablero.eliminar(titulo);
 
 			break;
 			}
 		case 3: {
-			cout << "=== Seleccionar Tablero ===\n";
+			Menu menuSeleccion("Seleccionar Tablero", TableroNew, TableroNew.size());
 
+			int opcSeleccion = menuSeleccion.mostrarMenu();
+			titulo = TableroNew[opcSeleccion];
+			// segundo menu no? 
 
 			break;
 			}
